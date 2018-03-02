@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "http://devapi.blockbi.com/api",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {"^/api" : ""}
+  }
+}
