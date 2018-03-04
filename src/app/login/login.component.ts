@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ApiService } from '../../base/service/api.service';
 import { BiResponseModel } from '../../base/model/bi-response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
 
   validateForm: FormGroup;
 
-  constructor( @Inject(ApiService) public api: ApiService) {
+  constructor(
+    private router: Router,
+    @Inject(ApiService) public api: ApiService) {
   }
 
 
@@ -36,7 +39,9 @@ export class LoginComponent implements OnInit {
       platform: 1
     }).subscribe((res: BiResponseModel) => {
       console.log("登录反馈", res)
-
+      if (res.status == 1) {
+        this.router.navigate(['dashboard', { outlets: { chat: null } }]);
+      }
       // this.hideProcess = true;
       // if (res.status === APIErrorCode.SUCCESS) {
       //   this.userService.applyLogin({ user: res.data.user, companies_information: res.data.companies_information, session_id: res.data.session_id });
