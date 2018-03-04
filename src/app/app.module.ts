@@ -9,12 +9,14 @@ import { LoginComponent } from './login/login.component';
 import { BaseModule } from '../base/base.module';
 import { environment } from '../environments/environment';
 import { AppConfig, APP_CONFIG } from '../environments/env.config';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
