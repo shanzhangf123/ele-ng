@@ -10,6 +10,7 @@ import { BaseModule } from '../base/base.module';
 import { environment } from '../environments/environment';
 import { AppConfig, APP_CONFIG } from '../environments/env.config';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     BrowserAnimationsModule,
     ElModule.forRoot(),
     BaseModule.forRoot()

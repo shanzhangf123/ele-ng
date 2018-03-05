@@ -7,14 +7,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  // providers: [Router]
 })
 export class LoginComponent implements OnInit {
 
   validateForm: FormGroup;
 
   constructor(
-    private router: Router,
+    // private router: Router,
     @Inject(ApiService) public api: ApiService) {
   }
 
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
     }).subscribe((res: BiResponseModel) => {
       console.log("登录反馈", res)
       if (res.status == 1) {
-        this.router.navigate(['dashboard', { outlets: { chat: null } }]);
+        // this.router.navigate(['dashboard', { outlets: { chat: null } }]);
       }
       // this.hideProcess = true;
       // if (res.status === APIErrorCode.SUCCESS) {
