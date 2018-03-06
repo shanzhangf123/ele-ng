@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 // import { AuthGuard } from './_authGuard/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 // import { DashboradComponent } from './main/pages/dashboard/components/dashborad.component';
@@ -15,5 +15,5 @@ export const appRoutes: Routes = [
     // },
     // { path: 'user/:id', component: ChatComponent, outlet: 'chat', canActivate: [AuthGuard], pathMatch: 'full' },
     // { path: 'channel/:id', component: ChatComponent, outlet: 'chat', canActivate: [AuthGuard], pathMatch: 'full' },
-    { path: '**', redirectTo: 'dashboard' }
+    // { path: '**', redirectTo: 'dashboard' }
 ];
