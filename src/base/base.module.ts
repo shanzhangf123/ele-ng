@@ -7,8 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ApiService } from './service/api.service';
 // import { BiLogService } from './debug/bi-log.service';
-// import { ModuleHeaderComponent } from './components/bi-header/bi-header.component';
-// import { UserService } from './service/user.service';
+import { BiHeaderComponent } from './components/bi-header/bi-header.component';
+import { UserService } from './service/user.service';
+import { UserStorageService } from './storage/user.storage.service';
+import { PersistenceService } from 'angular-persistence';
+import { ImService } from './service/im.service';
+import { ElModule } from 'element-angular';
 // import { UserStorageService } from './storage/user-storage.service';
 // import { BiTranslateService } from './service/bi-translate.service';
 // import { WebsocketService } from './service/websocket.service';
@@ -18,7 +22,7 @@ import { ApiService } from './service/api.service';
 const PROVIDERS =  [
   ApiService, 
 //   BiLogService,
-//    UserService
+   UserService
 ];
 /**
  *
@@ -28,9 +32,10 @@ const PROVIDERS =  [
   imports: [
     CommonModule,
     HttpClientModule,
+    ElModule.forRoot(),
   ],
-  exports: [],
-  declarations: [],
+  exports: [BiHeaderComponent],
+  declarations: [BiHeaderComponent],
   providers: PROVIDERS
 })
 export class BaseModule {
@@ -38,8 +43,10 @@ export class BaseModule {
     return {
       ngModule: BaseModule,
       providers: [
-        // {provide: UserService, useClass: UserService},
-        // {provide: UserStorageService, useClass: UserStorageService},
+        {provide: UserService, useClass: UserService},
+        {provide: UserStorageService, useClass: UserStorageService},
+        {provide: PersistenceService, useClass: PersistenceService},
+        {provide: ImService, useClass: ImService},
         // {provide: ApiService, useClass: ApiService},
         // {provide: BiLogService, useClass: BiLogService},
         // {provide: BiTranslateService, useClass: BiTranslateService},

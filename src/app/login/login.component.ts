@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, AbstractControl } from '@angular/f
 import { ApiService } from '../../base/service/api.service';
 import { BiResponseModel } from '../../base/model/bi-response';
 import { Router } from '@angular/router';
+import { UserService } from '../../base/service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
+    @Inject(UserService) public userService: UserService,
     @Inject(forwardRef(() => FormBuilder)) private formBuilder: FormBuilder,
     @Inject(ApiService) public api: ApiService) {
   }
@@ -25,27 +27,32 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("初始化登录页面");
+    // console.log("初始化登录页面");
     this.validateForm = this.formBuilder.group({
-      password: [ '', [this.passwordValidator] ],
-      mail: [ '', [this.emailValidator] ],
+      password: ['', [this.passwordValidator]],
+      mail: ['', [this.emailValidator]],
     })
   }
 
 
 
   submit(): void {
-    console.log('提交登录请求');
+    // console.log('提交登录请求');
+    // console.log(this.validateForm.value)
+    this.validateForm.value.mail = '999999@qq.com';
+    this.validateForm.value.password = '987654321';
     this.api.basePost('userLoginCheck', {
-      username: '999999@qq.com',
-      password: '987654321',
+      username: this.validateForm.value.mail,
+      password: this.validateForm.value.password,
       platform: 1
     }).subscribe((res: BiResponseModel) => {
       console.log("登录反馈", res)
       if (res.status == 1) {
-        this.router.navigate(['/dashboard', { outlets: { chat: null } }]);
+        this.router.navigate(['/dashboard']);
+        this.userService.applyLogin({ user: res.data.user, companies_information: res.data.companies_information, session_id: res.data.session_id });  
+      } else {
+        alert('账号密码错误');
       }
-
     });
   }
 
