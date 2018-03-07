@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    console.log("初始化登录页面");
   }
 
 

@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-root',
+  selector: 'bi-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
-  public isShowLogin: boolean;
+  // public isShowLogin: boolean;
+
+  constructor(public router: Router) {
+
+  }
 
 
 
@@ -17,12 +22,10 @@ export class AppComponent {
    */
   login() {
     console.log('点击登录');
-    this.isShowLogin = true;
+    // this.isShowLogin = true;
+    // this.router.navigate(['/login']);
   }
 
 
-  handle(){
-    console.log('关闭对话框');
-  }
-  
+
 }
