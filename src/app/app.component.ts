@@ -9,21 +9,19 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  // public isShowLogin: boolean;
+  public isShowIntro: boolean = true;
 
   constructor(public router: Router) {
-
+    console.log('app component页面初始化');
   }
 
 
-
   /**
-   * 登录
+   * 隐藏介绍部分
    */
-  login() {
-    console.log('点击登录');
-    // this.isShowLogin = true;
-    // this.router.navigate(['/login']);
+  hideIntro() {
+    console.log('隐藏介绍部分');
+    this.isShowIntro = false;
   }
 
 

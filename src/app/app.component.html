@@ -1,20 +1,7 @@
-
 <router-outlet></router-outlet>
-<a [routerLink]="['/login']"
-(click)="login()">跳转到登录页面</a>
 
 
-这是首页 WELOCME TO BI PROJECT
+<app-introduce
+ *ngIf="isShowIntro" (outputHideIntro)="hideIntro($event)">
 
-
-<!-- <a href="/auth/login" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
-    Start to use BI</a> -->
-
-
-<!-- <el-dialog [title]="'登录'"
-[center]="true"
-[(visible)]="isShowLogin">
-
-</el-dialog> -->
-
-<!-- <app-login></app-login> -->
+</app-introduce>

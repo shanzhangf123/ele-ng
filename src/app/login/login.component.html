@@ -15,14 +15,14 @@
 
 </el-form> -->
 
-  这是登录页面
+  <!-- 这是登录页面 -->
 
-<!-- <el-dialog [title]="'登录'">
+<!-- <el-dialog [title]="'登录'"> -->
 
-<el-form label-width="100px" [show-icon]="true" [show-message]="true" el-class="form-demo">
+<el-form [formGroup]="validateForm" label-width="100px" [show-icon]="true" [show-message]="true" el-class="form-demo">
 
   <el-form-item label="邮箱/手机" [required]="true">
-    <el-input formControlName="mail"></el-input>
+    <el-input formControlName="mail" ></el-input>
   </el-form-item>
 
   <el-form-item label="密码" [required]="true">
@@ -36,4 +36,4 @@
 
 </el-form>
 
-</el-dialog> -->
+<!-- </el-dialog> -->

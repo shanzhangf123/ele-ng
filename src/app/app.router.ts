@@ -6,13 +6,13 @@ import { LoginComponent } from './login/login.component';
 // import { ChatComponent } from './main/pages/chat/chat/chat.component';
 
 export const appRoutes: Routes = [
-    // {
-    //     path: 'dashboard', component: DashboardComponent
-    // },
-    // {
-    //     path: 'login', component: LoginComponent
-    // },
-    { path: 'login', loadChildren: 'app/login/login.module#LoginModule' },
+    {
+        path: 'dashboard', component: DashboardComponent
+    },
+    {
+        path: 'login', component: LoginComponent
+    },
+    // { path: 'login', loadChildren: 'app/login/login.module#LoginModule' },
     // { path: 'auth/login', component: LoginComponent },
     // { path: 'auth/register', loadChildren: 'app/main/pages/register/register.module#RegisterModule' },
     // {
@@ -20,7 +20,7 @@ export const appRoutes: Routes = [
     // },
     // { path: 'user/:id', component: ChatComponent, outlet: 'chat', canActivate: [AuthGuard], pathMatch: 'full' },
     // { path: 'channel/:id', component: ChatComponent, outlet: 'chat', canActivate: [AuthGuard], pathMatch: 'full' },
-    // { path: '**', redirectTo: 'dashboard' }
+        // { path: '**', redirectTo: 'introduce' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

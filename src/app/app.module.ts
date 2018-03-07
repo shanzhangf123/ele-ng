@@ -12,6 +12,9 @@ import { AppConfig, APP_CONFIG } from '../environments/env.config';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 import { appRoutes, routing } from './app.router';
 import { RouterModule } from '@angular/router';
+import { IntroduceModule } from './introduce/introduce.module';
+import { IntroduceComponent } from './introduce/introduce.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,14 +22,18 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     // LoginComponent,
     // DashboardComponent
+    IntroduceComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     ElModule.forRoot(),
     BaseModule.forRoot(),
-    routing
+    routing,
+    IntroduceModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },

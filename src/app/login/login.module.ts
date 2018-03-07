@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login.router';
+import { ElModule } from 'element-angular';
 // import { BiThemeModule } from '../bi-theme/bi-theme.module';
 // import { TranslateModule } from '@ngx-translate/core';
 // import { SharedModule } from '../../../core/modules/shared.module';
@@ -14,7 +15,10 @@ import { LoginRoutingModule } from './login.router';
 @NgModule({
     imports: [
         // SharedModule,
-        LoginRoutingModule
+        FormsModule,
+        ReactiveFormsModule,
+        LoginRoutingModule,
+        ElModule.forRoot(),
     ],
     declarations: [LoginComponent],
     exports: [LoginComponent]
