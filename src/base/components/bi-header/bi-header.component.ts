@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bi-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BiHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     console.log('bi-header')
@@ -15,7 +16,22 @@ export class BiHeaderComponent implements OnInit {
 
 
   handle(index: any) {
-    console.log('??????', index);
+    switch (index) {
+      case '1':
+      console.log('跳转到聊天首页');
+      this.router.navigate(['/dashboard'])
+      break;
+      case '5':
+        console.log('跳转到聊天页面');
+        this.router.navigate(['/chat'])
+        break;
+
+      default:
+
+        break;
+
+
+    }
   }
 
 }

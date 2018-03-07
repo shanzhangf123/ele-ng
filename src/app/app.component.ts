@@ -13,6 +13,9 @@ export class AppComponent {
 
   constructor(public router: Router) {
     console.log('app component页面初始化');
+    console.log('>>>>>>', this.router);
+    console.log('>>>>>>', this.router.url);
+    this.isShowIntro == (this.router.url == '/' )
   }
 
 

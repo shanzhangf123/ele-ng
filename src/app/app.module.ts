@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { IntroduceModule } from './introduce/introduce.module';
 import { IntroduceComponent } from './introduce/introduce.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+// import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     // LoginComponent,
     // DashboardComponent
     IntroduceComponent,
+    // ChatComponent,
   ],
   imports: [
     BrowserModule,
